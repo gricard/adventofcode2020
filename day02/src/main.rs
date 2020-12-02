@@ -35,16 +35,8 @@ impl FromStr for PWEntry {
 }
 
 fn count_chars(char: &String, word: &String) -> u32 {
-    // there's got to be a cleaner way to do this
-    let target = char.chars().next().unwrap();
-    let chars: Vec<char> = word.chars().collect();
-    let mut count = 0;
-    for n in 0..chars.len() {
-        if chars[n] == target {
-            count += 1;
-        }
-    }
-    count
+    let matches: Vec<&str> = word.matches(char).collect();
+    matches.len() as u32
 }
 
 fn is_password_valid(min: u8, max: u8, letter: &String, password: &String) -> bool {
