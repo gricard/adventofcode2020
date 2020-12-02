@@ -60,7 +60,7 @@ fn main() {
                 }
                 // println!("min: {} max: {} letter: {} pw: {} valid: {}", entry.min, entry.max, entry.letter, entry.password, is_valid);
             }
-            Err(e) => {
+            Err(_) => {
                 println!("Invalid line: {}", line);
             }
         }
